@@ -1,0 +1,9 @@
+accessmodifier\mainpkg\AccModifMainObject.class
+accessmodifier\nextpkg\AccModifChild.class
+annotations\PersonInfo.class
+annotations\InputArgs.class
+accessmodifier\mainpkg\AccModifSamePkg.class
+annotations\AnnotationsExamples.class
+accessmodifier\nextpkg\AccModifOtherPkg.class
+exceptions\ExcClass.class
+annotations\ComponentInfo.class

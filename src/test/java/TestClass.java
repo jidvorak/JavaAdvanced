@@ -1,5 +1,6 @@
 import exceptions.ExcClass;
 import org.junit.jupiter.api.Test;
+import sun.jvm.hotspot.utilities.Assert;
 
 
 public class TestClass {
@@ -16,4 +17,5 @@ public class TestClass {
             throw new RuntimeException(e);
         }
     }
+
 }

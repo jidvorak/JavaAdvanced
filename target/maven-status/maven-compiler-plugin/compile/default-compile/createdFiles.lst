@@ -2,7 +2,6 @@ composition\Proccessor.class
 mypackage\myclass.class
 classesinheritence\MainCar$DataClass.class
 annotations\PersonInfo.class
-classesinheritence\MainCar$1Pair.class
 abstractclasses\VanCarChildAbs.class
 annotations\InputArgs.class
 abstractclasses\PersonalCarChildAbs.class
@@ -19,6 +18,7 @@ interfaces\CarIntPersonal.class
 accessmodifier\nextpkg\AccModifChild.class
 classesinheritence\VanBigger.class
 classesinheritence\VanCar.class
+accessmodifier\MyClass.class
 accessmodifier\mainpkg\AccModifSamePkg.class
 annotations\AnnotationsExamples.class
 composition\Computer.class

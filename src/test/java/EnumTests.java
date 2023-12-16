@@ -9,8 +9,10 @@ public class EnumTests {
     @Test
     public void constTest(){
 
+        // rozhodovani podle hodnoty a konstanty
         String color = COLOR_BLUE;
 
+        // na základě hodnoty provedeme nějakou cinnost
         if(color.equalsIgnoreCase(COLOR_BLUE)){
             System.out.println("je to modrá");
         }else if(color.equalsIgnoreCase(COLOR_RED)){

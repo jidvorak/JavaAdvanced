@@ -95,5 +95,15 @@ public class ExcClass {
         }
     }
 
+    // vlastni exception
+    public void customException(String s) throws MyException {
+
+        if(s.equalsIgnoreCase("AHOJ"))
+            //throw new MyException(this.getClass(), "retezec nesmi mit hodnotu AHOJ - zadne tykani");
+            throw new MyException("ExcClass", "retezec nesmi mit hodnotu AHOJ - zadne tykani");
+
+        System.out.println("retezec je OK, ma hodnotu : " + s);
+    }
+
 
 }

@@ -1,6 +1,9 @@
 package composition;
 
-public class Computer {
+import java.io.Closeable;
+import java.io.IOException;
+
+public class Computer implements Closeable {
     private Proccessor proccessor;
     private Memory memory;
 
@@ -39,4 +42,8 @@ public class Computer {
             return 0; // nebo vyhodíme chybu (exception)
     }
 
+    @Override
+    public void close() throws IOException {
+        // uzavrit cokoli
+    }
 }

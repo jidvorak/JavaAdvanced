@@ -3,6 +3,9 @@ import classesinheritence.PersonalCar;
 import classesinheritence.VanBigger;
 import classesinheritence.VanCar;
 import org.junit.jupiter.api.Test;
+import overideexample.Child01;
+import overideexample.Child02;
+import overideexample.Child03;
 
 public class CarrTestClass {
 
@@ -30,6 +33,19 @@ public class CarrTestClass {
         vanBigger.printType();
         vanBigger.printSize();
 
+
+    }
+
+    @Test
+    public void testX() throws Exception {
+
+        Child01 ch1 = new Child01();
+        Child02 ch2 = new Child02();
+        Child03 ch3 = new Child03();
+
+        System.out.println(ch1.getName());
+        System.out.println(ch2.getName());
+        System.out.println(ch3.getName());
 
     }
 

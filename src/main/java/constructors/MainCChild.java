@@ -1,4 +1,4 @@
-package construct;
+package constructors;
 
 public class MainCChild extends MainC{
 

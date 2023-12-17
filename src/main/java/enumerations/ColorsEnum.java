@@ -8,10 +8,11 @@ public enum ColorsEnum {
     GREEN("green color");
 
     private String colorName;
+
     ColorsEnum(String aColorName){
+
         colorName = aColorName;
     }
-
     public String getColorName() {
         return colorName;
     }

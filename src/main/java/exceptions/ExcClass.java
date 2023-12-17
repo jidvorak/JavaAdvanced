@@ -1,40 +1,56 @@
 package exceptions;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ExcClass {
 
 
     public static void exceptHandle(String s){
-        System.out.println(">>>>start metody<<<<");
-        System.out.println("---------------------");
-        try{
+        System.out.println("start metody --------------------------------------------");
+        try {
+
             System.out.println("start try");
-
-            printStringCheckNull(s);
-            printString(s);
-
+            printStringThrowIlegalArgException(s);
+            printStringThrowException(s);
+            printStringNoThrow(s);
             System.out.println("end try");
+            getFile();
 
-        }catch (Exception t){
-
-            System.out.println("exception");
-            System.out.println(t.getMessage());
+        // je treba skladat hiearchicky podle parent / child
+        }catch (IllegalArgumentException ilEx) {
+            System.out.println("exception cath : IllegalArgumentException " + ilEx.getMessage());
+        }catch (RuntimeException rt) {
+            System.out.println("exception cath : RuntimeException " + rt.getMessage());
+        }catch (IOException ioX){
+            System.out.println("IOException ");
+        }catch (Exception t) {
+            System.out.println("exception catch " + t.getMessage());
+        }finally{
+            System.out.println("blok finally je vyvolán vždy");
         }
-        System.out.println("------------------------");
-        System.out.println(">>>> konec metody <<<<<");
+
+        System.out.println("konec metody ----------------------------------------------");
     }
 
     // exception se musí deklarovat u metody
-    public static void printStringCheckNull(String s) throws Exception {
+    public static void printStringThrowException(String s) throws Exception {
         if(s!=null) {
             System.out.println(s);
             System.out.println(s.length());
         }else
             throw new Exception("Moje chyba : text chyby >>> string si nulllllllll");
     }
+
+    public static void printStringThrowIlegalArgException(String s){
+        if(s!=null) {
+            System.out.println(s);
+            System.out.println(s.length());
+        }else
+            throw new IllegalArgumentException("Chyba : IllegalArgumentException");
+    }
+
 
     // runtime exception se nemusí deklarovat u metody
     public static void printStringCheckNull02(String s) {
@@ -45,24 +61,38 @@ public class ExcClass {
             throw new RuntimeException("Moje chyba : text chyby >>> string si nulllllllll");
     }
 
-    public static void printString(String s){
+    public static void printStringNoThrow(String s){
         System.out.println(s);
         System.out.println(s.length());
     }
 
-
-
-
-
-    public void mainMethod() throws Exception {
-        throw new Exception();
+    public static void getFile() throws IOException {
+        throw new IOException();
     }
 
-    public String readFirstLineFromFile(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            return br.readLine();
-        } catch (IOException e) {
-            return "FAILED";
+    // typicke pouziti
+    public static Double methodClasicDeleni(Double num1, Double num2){
+        try{
+            return num1 / num2;
+        }catch (Exception ex){
+            return null;
         }
     }
+    // typicke pouziti
+    public static Double methodClasicDeleni02(Double num1, Double num2) throws Exception {
+      if(num2<1)
+         throw new Exception();
+      return num1 / num2;
+    }
+
+    public static void smycka(){
+        for(Integer i = 5; i>-5; i--) {
+            try {
+                Double d = methodClasicDeleni02(55.5, new Double(i));
+                System.out.println(i + " -> " + d);
+            } catch (Exception ex){break;}
+        }
+    }
+
+
 }

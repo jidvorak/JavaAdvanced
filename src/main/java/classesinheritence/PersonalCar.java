@@ -13,6 +13,6 @@ public class PersonalCar extends MainCar {
 
     @Override
     public void printType(){
-        System.out.println(dataclass.stringCar + " osobni vozidlo");
+        System.out.println(stringCar + " osobni vozidlo");
     }
 }

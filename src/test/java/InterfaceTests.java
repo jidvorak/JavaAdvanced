@@ -18,6 +18,36 @@ public class InterfaceTests {
 
     }
 
+    @Test
+    public void intTestAnon(){
+
+        CarInterface carInterface = new CarInterface() {
+            @Override
+            public String getSPZ() {
+                return "SPZ-321654987";
+            }
+
+            @Override
+            public String getCarType() {
+                return "bmw";
+            }
+
+            @Override
+            public Integer getLength() {
+                return 5;
+            }
+
+            @Override
+            public Integer getWith() {
+                return 2;
+            }
+        };
+        printInfo(carInterface);
+
+    }
+
+
+
     // vytvori a vrati implementaci rozhrani dle parametru
     // implemntace je potomek CarIntPersonal nebo CarIntVan
     private CarInterface getInterface(int cartype){

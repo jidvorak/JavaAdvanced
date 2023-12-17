@@ -9,7 +9,7 @@ public class VanCar extends MainCar {
 
     @Override
     public void printType(){
-        System.out.println(dataclass.stringCar + " nakladni vozidlo obecne");
+        System.out.println(stringCar + " nakladni vozidlo obecne");
     }
 
     public void printSize(){

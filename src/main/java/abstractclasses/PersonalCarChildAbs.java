@@ -14,7 +14,7 @@ public class PersonalCarChildAbs extends MainAbstractCar {
 
     @Override
     protected Integer carInfoWidth() {
-        return 2;
+        return 4;
     }
 
 

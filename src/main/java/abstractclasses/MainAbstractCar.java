@@ -1,5 +1,6 @@
 package abstractclasses;
 
+// ABSTRAKTNI TRIDA SE NEDA VYTVORIT POMOCI (NEW)
 public abstract class MainAbstractCar {
     // -------------------------------------------
     public String getCarrInfo(){
@@ -9,6 +10,7 @@ public abstract class MainAbstractCar {
         return carInfoLength() * carInfoWidth();
     }
 
+    // ABSTRAKTNI METODY KTERE SE MUSI IMPLEMENTOVAT V POTOMKOVI
     protected abstract String carInfoFromChild();
     protected abstract Integer carInfoLength();
     protected abstract Integer carInfoWidth();

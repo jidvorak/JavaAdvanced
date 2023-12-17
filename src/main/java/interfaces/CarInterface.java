@@ -2,6 +2,7 @@ package interfaces;
 
 public interface CarInterface {
 
+
     default String getSeparator(){
         return "----------------------------------------------";
     }
@@ -10,9 +11,12 @@ public interface CarInterface {
         return getSPZ() + "-----" + getLength();
     }
 
+
+    // ----------------------------------------
     String getSPZ();
     String getCarType();
     Integer getLength();
     Integer getWith();
+    // ----------------------------------------
 
 }

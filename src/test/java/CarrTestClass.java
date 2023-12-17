@@ -11,6 +11,8 @@ public class CarrTestClass {
 
         MainCar carclas = new MainCar(">>>nespecifikovano<<< ");
         carclas.printType();
+
+
         // ********************************************************************
         PersonalCar personal01 = new PersonalCar(">>>SPECIF STR<<< ");
         personal01.printType();

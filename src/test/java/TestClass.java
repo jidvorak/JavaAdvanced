@@ -1,17 +1,17 @@
-import exceptions.ExcClass;
+import accessmodifier.MyClass;
 import org.junit.jupiter.api.Test;
-import sun.jvm.hotspot.utilities.Assert;
+
 
 
 public class TestClass {
     @Test
-    public void exceptionsTest(){
-        ExcClass ec = new ExcClass();
-        try {
-            ec.mainMethod();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void xxx(){
+
+        MyClass myclass = new MyClass(100);
+
+        System.out.print(myclass.getCislo());
+
+
     }
 
 }

@@ -18,22 +18,24 @@ public class AbstractTestClass {
     // použití anonymní třídy
     @Test
     public void absAnonymTest() {
+
         MainAbstractCar abs = new MainAbstractCar() {
             @Override
             protected String carInfoFromChild() {
-                return "ANONYM INFO";
+                return "";
             }
 
             @Override
             protected Integer carInfoLength() {
-                return 1;
+                return 5;
             }
 
             @Override
             protected Integer carInfoWidth() {
-                return 2;
+                return 4;
             }
         };
+
         System.out.println(abs.getCarrInfo());
     }
 }

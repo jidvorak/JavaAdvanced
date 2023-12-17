@@ -10,7 +10,7 @@ public class VanBigger extends VanCar{
 
     @Override
     public void printType(){
-        System.out.println(dataclass.stringCar + " nakladni vozidlo NEJVETSI  spz=" + dataclass.SPZ);
+        System.out.println(stringCar + " nakladni vozidlo NEJVETSI  spz=" + SPZ);
     }
 
     @Override

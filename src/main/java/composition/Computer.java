@@ -12,7 +12,7 @@ public class Computer {
 
     public Computer(){
         proccessor = new Proccessor();
-        memory = new Memory();
+        memory = new Memory(555);
     }
 
     public Proccessor getProccessor() {
@@ -34,7 +34,7 @@ public class Computer {
     // -------------------------------------------------------------------
     public Integer getMemorySize(){
         if(memory!=null)
-            return memory.capoacity;
+            return memory.capacity;
         else
             return 0; // nebo vyhodíme chybu (exception)
     }

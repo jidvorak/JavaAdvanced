@@ -1,13 +1,11 @@
 package exceptions;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class ExcClass {
 
-
     public static void exceptHandle(String s){
+
         System.out.println("start metody --------------------------------------------");
         try {
 
@@ -30,8 +28,8 @@ public class ExcClass {
         }finally{
             System.out.println("blok finally je vyvolán vždy");
         }
-
         System.out.println("konec metody ----------------------------------------------");
+
     }
 
     // exception se musí deklarovat u metody
@@ -78,19 +76,22 @@ public class ExcClass {
             return null;
         }
     }
-    // typicke pouziti
-    public static Double methodClasicDeleni02(Double num1, Double num2) throws Exception {
+
+    // deleni s throw exception
+    public static Double methodClasicDeleni02(Double num1, Double num2) {
       if(num2<1)
-         throw new Exception();
+         throw new IllegalArgumentException();
       return num1 / num2;
     }
 
-    public static void smycka(){
+    public static void smyckaCatchException(){
         for(Integer i = 5; i>-5; i--) {
             try {
                 Double d = methodClasicDeleni02(55.5, new Double(i));
                 System.out.println(i + " -> " + d);
-            } catch (Exception ex){break;}
+            } catch (Exception ex){
+                break;
+            }
         }
     }
 

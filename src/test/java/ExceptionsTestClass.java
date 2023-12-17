@@ -8,7 +8,7 @@ public class ExceptionsTestClass {
 
         //ExcClass.exceptHandle(null);
         //ExcClass.exceptHandle("retezec");
-        ExcClass.smycka();
+        ExcClass.smyckaCatchException();
 
     }
 }

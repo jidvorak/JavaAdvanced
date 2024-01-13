@@ -1,4 +1,4 @@
-import classesinheritence.MainCar;
+import classesinheritence.Car;
 import classesinheritence.PersonalCar;
 import classesinheritence.VanBigger;
 import classesinheritence.VanCar;
@@ -7,12 +7,12 @@ import overideexample.Child01;
 import overideexample.Child02;
 import overideexample.Child03;
 
-public class CarrTestClass {
+public class InheritenceClassesCarrTest {
 
     @Test
     public void doTestCarr(){
 
-        MainCar carclas = new MainCar(">>>nespecifikovano<<< ");
+        Car carclas = new Car(">>>nespecifikovano<<< ");
         carclas.printType();
 
 

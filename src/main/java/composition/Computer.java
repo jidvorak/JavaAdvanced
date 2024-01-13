@@ -7,16 +7,17 @@ public class Computer implements Closeable {
     private Proccessor proccessor;
     private Memory memory;
 
+    public Computer(){
+        proccessor = new Proccessor();
+        memory = new Memory(555);
+    }
 
     public Computer(Proccessor aProccessor,  Memory aMemory){
         proccessor = aProccessor;
         memory = aMemory;
     }
 
-    public Computer(){
-        proccessor = new Proccessor();
-        memory = new Memory(555);
-    }
+
 
     public Proccessor getProccessor() {
         return proccessor;

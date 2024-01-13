@@ -1,7 +1,7 @@
 package classesinheritence;
 
 // potomet hlavni tridy
-public class VanCar extends MainCar {
+public class VanCar extends Car {
 
     public VanCar(String aStrCar){
         super(aStrCar);

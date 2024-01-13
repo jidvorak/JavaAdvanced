@@ -1,10 +1,25 @@
-import enumerations.ColorsEnum;
+import enumpkg.BasicColorsEnum;
+import enumpkg.ColorsEnum;
 import org.junit.jupiter.api.Test;
 
 public class EnumTests {
 
     private static final String COLOR_RED  = "RED";
     private static final String COLOR_BLUE  = "BLUE";
+
+    @Test
+    public void enm(){
+        pritIt(BasicColorsEnum.BLACK);
+    }
+
+    public void pritIt(BasicColorsEnum colorenum){
+
+        if(colorenum== BasicColorsEnum.BLACK)
+            System.out.println("je to cerna");
+        else
+            System.out.println("to neni cerna");
+    }
+
 
     @Test
     public void constTest(){

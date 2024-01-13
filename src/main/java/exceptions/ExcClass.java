@@ -32,6 +32,31 @@ public class ExcClass {
 
     }
 
+    public static void exceptHandleSimple(String s){
+        System.out.println("start metody --------------------------------------------");
+
+        try {
+            // otevreme soubor
+            System.out.println("start try");
+            printStringThrowIlegalArgException(s);
+            printStringThrowException(s);
+            printStringNoThrow(s);
+            System.out.println("end try");
+            getFile();
+            // zavirame soubor - lepe datr do finally
+        }catch (Exception ilEx) {
+            System.out.println("exception cath " + ilEx.getMessage());
+            // zavirame soubor - lepe datr do finally
+        }finally{
+            System.out.println("blok finally je vyvolán vždy");
+            // zavirame soubor - nejlepsi reseni
+        }
+
+
+        System.out.println("konec metody ----------------------------------------------");
+    }
+
+
     // exception se musí deklarovat u metody
     public static void printStringThrowException(String s) throws Exception {
         if(s!=null) {

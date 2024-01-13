@@ -19,6 +19,8 @@ public class CarIntPersonal implements CarInterface {
 
     @Override
     public Integer getWith() {
-        return 2;
+        return 8;
     }
+
+
 }

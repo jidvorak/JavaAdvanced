@@ -1,17 +1,25 @@
 package classesinheritence;
 
 // hlavni trida ze ktere budeme dedit
-public class MainCar {
+
+import annotations.SimpleAnotation;
+
+@SimpleAnotation
+public class Car {
 
     protected String stringCar;
     protected String SPZ = "";
 
-    public MainCar(String aStrCar){
+    public Car(){
+        stringCar = "aStrCar";
+    }
+
+    public Car(String aStrCar){
         stringCar = aStrCar;
     }
 
     public void printType(){
-        System.out.println(stringCar + " nespecifikovane vozidlo");
+        System.out.println(stringCar + " >>> nespecifikovane vozidlo <<<");
     }
 
     public void setSPZ(String SPZ) {

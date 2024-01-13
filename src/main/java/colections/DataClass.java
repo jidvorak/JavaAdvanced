@@ -1,6 +1,8 @@
 package colections;
 
-public class DataClass {
+import javax.xml.crypto.Data;
+
+public class DataClass implements Comparable<DataClass>{
 
     public String name = "";
     public Integer age = 1;
@@ -10,4 +12,23 @@ public class DataClass {
         age = aAge;
     }
 
+    @Override
+    public String toString(){
+        return "[" + name + "] [" + age.toString() +  "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return ((DataClass) o).age == age;
+    }
+
+    @Override
+    public int compareTo(DataClass o) {
+        return o.age - age;
+    }
+
+    @Override
+    public int hashCode(){
+        return age;
+    }
 }

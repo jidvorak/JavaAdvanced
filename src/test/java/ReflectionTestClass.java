@@ -53,9 +53,11 @@ public class ReflectionTestClass {
         }
         // precteni anotace z tridy
         SimpleAnotation simpleanotation = (SimpleAnotation)carClass.getAnnotation(SimpleAnotation.class);
-        if(simpleanotation!=null)
+        if(simpleanotation!=null) {
+            System.out.println("----------------------------------------");
             System.out.println("Ano trida je anotovana @SimpleAnotation");
-        else
+            System.out.println("----------------------------------------");
+        }else
             System.out.println("Trida neni anotovana @SimpleAnotation");
     }
 

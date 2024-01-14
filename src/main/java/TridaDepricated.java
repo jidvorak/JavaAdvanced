@@ -1,6 +1,6 @@
 public class TridaDepricated {
 
-    @Deprecated
+    @Deprecated  // anotace znamená ze je potreba pouzit jinou, novejsi funkci
     public void tiskni(String s){
         System.out.println(s);
     }

@@ -1,3 +1,6 @@
+import interfacebest.Child;
+import interfacebest.ManInteface;
+import interfacebest.OldMan;
 import interfaces.CarIntPersonal;
 import interfaces.CarIntVan;
 import interfaces.CarInterface;
@@ -65,6 +68,31 @@ public class InterfaceTests {
         System.out.println(carInterface.getCarType());
         System.out.println(carInterface.getLength());
         System.out.println(carInterface.getWith());
+
+    }
+
+    @Test
+    public void intTestMan() {
+
+        // pokud mame promennou typu interface lze volat jen metody interface
+        ManInteface old = new OldMan();
+        ManInteface child = new Child();
+
+        System.out.println("---- OLD ----");
+        old.printName();
+        old.printAge();
+
+        System.out.println("---- CHILD ----");
+        child.printName();
+        child.printAge();
+
+        // pokud mame promennou typu trida implementujici interface, lze volat metody interface
+        // a take metody z dane tridy - zde "printAddress()"
+        OldMan old2 = new OldMan();
+        System.out.println("---- OLD 2 ----");
+        old2.printName();
+        old2.printAge();
+        old2.printAddress();
 
     }
 

@@ -41,10 +41,11 @@ public class CollectionClass {
 
     public static Queue<String> getQueueString(){
         Queue<String> queue = new LinkedList<>();
-        queue.offer("1 prvni");
+        queue.offer("1 prvni"); // u queue pouzivejte pro pridavani offer
         queue.offer("2 druhy");
         queue.offer("3 treti");
         queue.offer("4 ctvrty");
+
         return queue;
     }
 
@@ -64,6 +65,7 @@ public class CollectionClass {
         map.put("tri", new DataClass("3-Petr", 19));
         map.put("tri", new DataClass("3-Novy Petr", 19)); // stejny klic, hodnota se prepiše
         map.put("ctyri", new DataClass("4-Pavel", 19));
+
         map.put("pet", new DataClass("5-Jakub", 19));
         return map;
         /*

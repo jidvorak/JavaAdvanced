@@ -29,12 +29,15 @@ public class CollectionTestClass {
         for (String setitem : list) {
             System.out.println(setitem);
         }
+
+        //list.add()
+        //list.clear();
     }
 
     @Test
     public void colQTst() {
         Queue<String> queue = CollectionClass.getQueueString();
-
+        // cteni a mazani z fronty
         System.out.println(queue.poll());
         System.out.println(queue.poll());
         System.out.println(queue.poll());
@@ -52,6 +55,7 @@ public class CollectionTestClass {
     @Test
     public void colDeQTst() {
         Deque<String> queue = CollectionClass.getDeQueueString();
+        // cteni a mazani z obou stran fronty
         System.out.println(queue.poll());
         System.out.println(queue.pollLast());
 
@@ -84,8 +88,9 @@ public class CollectionTestClass {
             System.out.println("map value : " + map.get(key));
         }
         System.out.println("----------------------------------------");
-        // smazani 2. + vypis vsech klicu+hodnot
+        // smazani
         map.remove("dve");
+        //  vypis vsech klicu+hodnot
         for (Map.Entry<String, DataClass> keyvaluePair : map.entrySet()) {
             System.out.println("map key+value : " + keyvaluePair);
         }
@@ -93,8 +98,6 @@ public class CollectionTestClass {
         if(map.containsKey("pet")) {
             System.out.println("petka existuje");
         }
-
-
     }
 
     @Test
@@ -153,6 +156,23 @@ public class CollectionTestClass {
         // trideni
         Collections.sort(CollectionClass.getStrList(), Collections.reverseOrder());
 
+    }
+    @Test
+    public void colSort(){
+        List<String> strList = Arrays.asList("1-X", "2-X", "3-X");
+        for (String s :strList) {
+            System.out.println(s);
+        }
+        System.out.println("---------------------------------------");
+        Collections.sort(strList, Collections.reverseOrder());
+        for (String s :strList) {
+            System.out.println(s);
+        }
+    }
+
+    @Test
+    public void colArrays02() {
+        int[] poleInt = new int[]{1, 2, 4, 5, 6};
     }
 
 }

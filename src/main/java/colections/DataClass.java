@@ -2,7 +2,7 @@ package colections;
 
 import javax.xml.crypto.Data;
 
-public class DataClass implements Comparable<DataClass>{
+public class DataClass {
 
     public String name = "";
     public Integer age = 1;
@@ -20,11 +20,6 @@ public class DataClass implements Comparable<DataClass>{
     @Override
     public boolean equals(Object o) {
         return ((DataClass) o).age == age;
-    }
-
-    @Override
-    public int compareTo(DataClass o) {
-        return o.age - age;
     }
 
     @Override

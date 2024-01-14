@@ -73,12 +73,23 @@ public class ReflectionTestClass {
             if(line==null)
                 break;
             if (line.endsWith(".class")) {
-                System.out.println(line);
+                String classname = packageName + "." + line.substring(0, line.length()-6);
+                Class<?> cls = Class.forName(classname); // ziskame odkaz na tridu
+                processClass(cls);
             }
         }
     }
 
+    protected void processClass(Class<?> cls){
+        System.out.println(cls.getName());
+        //
+        Method[] methods = cls.getDeclaredMethods();
+        Field[] fields = cls.getDeclaredFields();
+        for (Method method : methods) {
+            System.out.println("    method - " + method);
+        }
 
+    }
 
 
 }

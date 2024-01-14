@@ -1,5 +1,17 @@
 package generisc;
 
+
+/*
+    konvence pojmenovani (<T> za nazvem tridy=typ)
+    dalsi mozne :
+
+    E- Element (používá se např. pro Java Collection API)
+    K- Klíč
+    N- Číslo
+    T- Typ
+    V- Hodnota
+*/
+
 public class GenBox<T> {
     private T item;
 

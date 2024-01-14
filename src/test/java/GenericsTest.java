@@ -1,6 +1,7 @@
 import colections.DataClass;
 import generisc.Box;
 import generisc.GenBox;
+import generisc.GenCup;
 import interfacebest.Child;
 import interfacebest.ManInteface;
 import interfacebest.OldMan;
@@ -80,18 +81,48 @@ public class GenericsTest {
         // pracujeme s tridou DataClass
         GenBox<DataClass> dataCBox = new GenBox<>();
         dataCBox.setItem(new DataClass("name", 22));
-
-        // pracujeme s rozhranim a vkladame tridu Child ktera ho implementuje
-        GenBox<ManInteface> manBox = new GenBox<>();
-        manBox.setItem(new Child());
-
     }
+
     // zpracuje pouze generickou tridu ktera pracuje s typem String
     public void genericProcBox(GenBox<String> b){
         String strInBox = b.getItem(); //  typ retezec
+    }
+
+    @Test
+    public void testTypickePouziti(){
+
+        // pracujeme s rozhranim a vkladame tridu Child ktera ho implementuje
+        // asi nejlepsi pouziti
+
+        GenBox<ManInteface> manBox = new GenBox<>();
+        manBox.setItem(new Child());
+
+        GenBox<ManInteface> manBox02 = new GenBox<>();
+        manBox02.setItem(new OldMan());
+
+        genericProcInterfaceBox(manBox);
+        genericProcInterfaceBox(manBox02);
 
     }
 
+    public void genericProcInterfaceBox(GenBox<ManInteface> genBox){
+
+        ManInteface manInt = genBox.getItem();
+        manInt.printName();
+
+    }
+
+    @Test
+    public void testConstructor() {
+
+        ManInteface man = new OldMan();
+        GenCup<ManInteface> cup = new GenCup<>(man);
+
+        GenCup<ManInteface> cup02 = new GenCup<>(new Child());
+
+        GenCup<Integer> cup03 = new GenCup<>(11);
+
+    }
 
 }
 

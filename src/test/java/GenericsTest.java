@@ -4,8 +4,6 @@ import interfacebest.Child;
 import interfacebest.ManInteface;
 import interfacebest.OldMan;
 import org.junit.jupiter.api.Test;
-
-import java.lang.management.ManagementPermission;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -191,6 +189,31 @@ public class GenericsTest {
         // nejde pouzit String - nededi z Number
         NumericBox<String> numStrBox = new NumericBox<>();
         numStrBox.setItem("");*/
+
+    }
+
+    @Test
+    public void genLimits02(){
+        List<Integer> intlist = new ArrayList<>();
+        intlist.add(55);
+        intlist.add(100);
+
+        double doe = GenercisLimits.sum(intlist);
+        System.out.println(doe);
+
+        // nelze pouzit metoda pracuje pouze List<Number> a na potomcich
+        //List<String> strlist = new ArrayList<>();
+        //GenercisLimits.sum(strlist);
+
+
+        List<Integer> intlist02 = new ArrayList<>();
+        intlist02.add(77);
+        GenercisLimits.addNumbers(intlist02);
+        System.out.println("size is " + intlist02.size());
+
+        // nelze pouzit metoda pracuje pouze List<Integer> a na predcich
+        //List<String> strlist = new ArrayList<>();
+        //GenercisLimits.addNumbers(strlist);
 
     }
 

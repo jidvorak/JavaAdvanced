@@ -14,19 +14,21 @@ public class InputOutputSerialization {
         String filename = "C:/JavaIO/serializable/serialized.binary";
 
         MySerializeClass serializeClass = new MySerializeClass("Jiri", 44, "London" );
+        serializeClass.getStrList().add("hodnota1");
+        serializeClass.getStrList().add("hodnota2");
+        serializeClass.getStrList().add("hodnota888");
+
         System.out.println("serialize object : "  + serializeClass);
         serialize(serializeClass, filename);
 
 
         MySerializeClass newClass = deserialize(filename);
-        System.out.println("serialize object : "  + newClass);
-
+        System.out.println("deserialized object : "  + newClass);
 
     }
 
     // serializuje libovolny objekt ktery implementuje rozhrani Serialize
     public void serialize(Object serializeClass, String filename) throws Exception{
-
         FileOutputStream fileOutputStream = new FileOutputStream(filename); // vytvarime file output stream - data se budou zapisouvat do souboru
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream); // objekt serializuje a zapisuje do fileOutStream
         outputStream.writeObject(serializeClass); // serializace objektu

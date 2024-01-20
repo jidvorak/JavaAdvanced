@@ -1,12 +1,16 @@
 package serialized;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySerializeClass implements Serializable {
 
     private String name = "";
     private Integer age = 0;
     private String address = "";
+    private List<String> strList = new ArrayList<>();
+
 
     public MySerializeClass(String aname, Integer aage, String aaddress){
         name = aname;
@@ -15,7 +19,11 @@ public class MySerializeClass implements Serializable {
     }
     @Override
     public String toString(){
-        return name + " - " + age.toString() + " - " + address;
+        String sOut = name + " - " + age.toString() + " - " + address;
+        for (String s : strList) {
+            sOut += " [" + s + "]";
+        }
+        return sOut;
     }
 
     public String getName() {
@@ -40,5 +48,13 @@ public class MySerializeClass implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<String> getStrList() {
+        return strList;
+    }
+
+    public void setStrList(List<String> strList) {
+        this.strList = strList;
     }
 }

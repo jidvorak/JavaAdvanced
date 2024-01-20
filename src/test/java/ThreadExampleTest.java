@@ -6,7 +6,7 @@ import threads.MyThread;
 public class ThreadExampleTest {
 
     @Test
-    public void threadTest() throws InterruptedException {
+    public void threadTest() throws Exception{
 
         // thread 01 - vytvorima a nastartujemae vlakno
         MyThread thread1 = new MyThread("   - new thread 01", 10);

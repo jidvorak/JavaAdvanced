@@ -59,6 +59,7 @@ public class CollectionClass {
     }
 
     public static Map<String, DataClass> getMap(){
+
         Map<String, DataClass> map = new HashMap<>();
         map.put("jedna", new DataClass("1-Karel", 25));
         map.put("dve", new DataClass("2-Josez", 28));

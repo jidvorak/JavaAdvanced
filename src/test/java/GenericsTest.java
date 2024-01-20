@@ -16,10 +16,13 @@ public class GenericsTest {
     @Test
     public void nogenTest(){
         // vytvarime Box, nastavujeme mu item ktery muze byt libovolneho typu
+
         Box box = new Box();
         box.setItem("polozka v boxu");
+
         Box box2 = new Box();
         box2.setItem(11);
+
         noGenProcBox(box);
     }
     // predavame Box, ten ma item a nevíme jakého je datového typu
@@ -28,6 +31,7 @@ public class GenericsTest {
     }
 
     // generika ---------------------------------------------------------------------
+    // příklad pouzití generik v collection
     @Test
     public void genUsing(){
 
@@ -66,6 +70,8 @@ public class GenericsTest {
     @Test
     public void genTest() {
 
+        // TODO zkuste něco podobneho jako v teto metode
+
         // vlastni genericka trida - kde pri zadání typu definujeme
         // s jakým datovým typem s bude pracovat. zde to je String - definuje se : GenBox<String>
         GenBox<String> stringBox = new GenBox<>();
@@ -80,10 +86,15 @@ public class GenericsTest {
         // pracujeme s tridou DataClass
         GenBox<DataClass> dataCBox = new GenBox<>();
         dataCBox.setItem(new DataClass("name", 22));
+
+        // konstruktor
+        GenBox<String> strBoxWithFoctructor = new GenBox<>("initialvalue");
+
     }
 
     // zpracuje pouze generickou tridu ktera pracuje s typem String
     public void genericProcBox(GenBox<String> b){
+
         String strInBox = b.getItem(); //  typ retezec
     }
 
@@ -165,11 +176,12 @@ public class GenericsTest {
         Pair<Integer, String> firstPair = GeneriMethod.generatePair(1, "abcd");
         Pair<Integer, DataClass> nextPair = GeneriMethod.generatePair(1, new DataClass("name", 11));
 
-        // TODO - dodelat
-        /*
         String str = GeneriMethod.getString("teststr");
+        System.out.println(str);
+
         String s2 = GeneriMethod.getString(111);
-         */
+        System.out.println(s2);
+
     }
 
     @Test
@@ -188,8 +200,8 @@ public class GenericsTest {
         /*
         // nejde pouzit String - nededi z Number
         NumericBox<String> numStrBox = new NumericBox<>();
-        numStrBox.setItem("");*/
-
+        numStrBox.setItem("");
+        */
     }
 
     @Test

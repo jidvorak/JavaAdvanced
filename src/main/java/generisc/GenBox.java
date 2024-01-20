@@ -15,6 +15,13 @@ package generisc;
 public class GenBox<T> {
     private T item;
 
+    public GenBox(){
+    }
+
+    public GenBox(T item){
+        this.item = item;
+    }
+
     public T getItem() {
         return item;
     }
@@ -23,3 +30,4 @@ public class GenBox<T> {
         this.item = item;
     }
 }
+

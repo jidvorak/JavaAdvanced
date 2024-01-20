@@ -65,6 +65,7 @@ public class CollectionTestClass {
 
     @Test
     public void colMapTst() {
+
         Map<String, DataClass> map = CollectionClass.getMap();
 
         // pomoci get ziskame hodnotu podle klice

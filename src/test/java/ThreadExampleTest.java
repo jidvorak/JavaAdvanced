@@ -1,14 +1,13 @@
 import enumpkg.BasicColorsEnum;
 import org.junit.jupiter.api.Test;
-import threads.GunFight;
-import threads.MyRunnable;
-import threads.MyThread;
-import threads.PrintDemo;
+import threads.*;
 
 
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 public class ThreadExampleTest {
@@ -68,7 +67,7 @@ public class ThreadExampleTest {
     @Test
     public void serializableTestNew() throws Exception{
         // TODO
-        PrintDemo PD = new PrintDemo();
+
 
     }
 
@@ -102,9 +101,10 @@ public class ThreadExampleTest {
          final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(cpus); // scheduled thread pool with cpu equal number of threads
         * */
     @Test
-    public void ExecutorTest() {
+    public void executorTest() {
         // spravuje nase vlakna v nasi aplikaci
         ExecutorService executor = Executors.newFixedThreadPool(10);
+        // vytvoreni vlakna
         executor.execute(new Runnable() {
             public void run() {
                 while(true) {
@@ -117,6 +117,7 @@ public class ThreadExampleTest {
                 }
             }
         });
+        // vytvoreni druheho vlakna
         executor.execute(new Runnable() {
             public void run() {
                 while(true) {
@@ -130,7 +131,63 @@ public class ThreadExampleTest {
             }
         });
 
+        // zastaveni vsech vlaken v executor service
+        executor.shutdown();
+        /*
+        shutdown()- fond vláken přestane přijímat nové úlohy, ty zahájené budou dokončeny a fond bude uzavřen
+        shutdownNow()- Podobně jako shutdown, ExecutorServicepřestane přijímat nové úkoly, navíc se pokusí zastavit všechny aktivní úkoly,
+                       zastaví zpracování čekajících úkolů a vrátí seznam úkolů čekajících na provedení.
+
+        fond vláken= ExecutorService
+         */
+
+    }
+    @Test
+    public void executorCallableTest() throws Exception {
+        // vytvoreni ExecutorService
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+        // spoustime vlakno jako rozhrani Callable (nikoli jako Runnable)
+        // coz nam dovoli vratit hodnotu. Je potreba vratit Future
+        Future<Integer> future = executor.submit(()->{
+            // z tela metody se vraci int
+            int x = 0;
+            for(int i=0; i<1000; i++) {
+                x=x+5;
+            }
+            return x;
+        });
+
+
+        // future.isDone() = true kdyz dobehne vlakno
+        // tato smycka jede tak dlouho dokud neskonci vlakno ktere vraci promennou (future)
+        while (!future.isDone()){
+            // smycka - v praxi ale pojede profram dal a muze se doptavat na hodnotu (future)
+            Thread.sleep(10);
+        }
+        // vypis hodnoty
+        System.out.println(future.get());
 
     }
 
+    @Test
+    public void atomicTest() throws Exception {
+
+        final ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+        // atomicky typ zabezpeci bezpecny pristu vice vlaken k jedne promenne
+        // pristup k tomuto objektu je synchronizovan
+        // zde ji vytvorime
+        final AtomicInteger atomicInteger = new AtomicInteger(0);
+
+        // stejnou instanci posleme do vice vlaken
+        // vlakny s ni pracuji bezpecne protoze je typu Atomic
+
+        executorService.submit(new IncrementingThread(atomicInteger));
+        executorService.submit(new IncrementingThread(atomicInteger));
+
+        executorService.shutdown();
+
     }
+
+
+}

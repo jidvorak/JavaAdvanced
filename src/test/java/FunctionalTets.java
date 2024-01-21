@@ -146,24 +146,31 @@ public class FunctionalTets {
     // Optional
     @Test
     public void optionaltest() {
+
         Optional<String> optStr00 = Optional.empty();
         Optional<String> optStr01 = Optional.of("ahoj");
 
+        Optional<Integer> optInt00 = Optional.of(11);
+
         /*
-        - isPresent vrací true/ falsev závislosti na tom, zda Optionalobsahuje nějaký objekt
+        - isPresent vrací true/ falsev závislosti na tom, zda Optional obsahuje nějaký objekt
         - isEmpty vrací hodnotu opačnou k hodnotě vrácené metodou isPresent, tj. dává informaci, zda Optional neukládá objekt
-        - ifPresent bere Consumer jako argument rozhraní funkce. To consumer bude voláno pouze v případě, že Optional obsahuje odkaz na objekt.
+        - ifPresent
         */
 
         if(optStr00.isPresent()){
-
+            System.out.println("ukazka IF - prvni objekt NENI null");
+        }else{
+            System.out.println("ukazka IF - prvni objekt JE null");
         }
 
+        // volano pro prvni objekt
         optStr00.ifPresent(s -> {
-            System.out.println("00 neni null;");
+            System.out.println("ukazka lambdy na (ifPresent) prvni objekt - NENI NULL");
         });
+        // volano pro druhy objekt
         optStr01.ifPresent(s -> {
-            System.out.println("01 neni null;");
+            System.out.println("ukazka lambdy na (ifPresent) druhy objekt - NENI NULL");
         });
 
         /*
@@ -179,6 +186,11 @@ public class FunctionalTets {
         String object02 = null;
         String name02 = Optional.ofNullable(object).orElseGet(() -> "john 02");
         System.out.println(name02); // String john reappears on the screen
+
+        Integer intObj = null;
+        Integer int02 = Optional.ofNullable(intObj).orElseGet(() -> 33);
+        System.out.println(int02); // String john reappears on the screen
+
 
     }
 

@@ -8,6 +8,9 @@ package functional;
 public interface FuncInterface {
     void abstractFun(int x);
 
+    // jedine metodyy defaul mohou byt u rozhrani @FunctionalInterface
+    // mohla by se pouzit tak ze zpracuje data a mimo jine i vola metodu
+    // funkcniho rozhrani (zde abstractFun)
     default int min(int a, int b) {
         return a < b ? a : b;
     }

@@ -9,4 +9,8 @@ public class Employee {
     public String getName(){
         return name;
     }
+
+    public String getNameAndSuffix(){
+        return name + "-suffix";
+    }
 }

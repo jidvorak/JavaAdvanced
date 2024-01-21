@@ -22,13 +22,13 @@ public class FunctionalTets {
         FuncInterface funcInterface;
 
         // nadefinujeme metodu (abstractFun) ktera vynasobi vstup X2 a vypise ho;
-        funcInterface = (int x)->System.out.println(2*x);
+        funcInterface = (int x)->System.out.println(2*x); // lambda výraz s jedním příkazem (nemusí být v {})
         // zavolame metodu funkcniho rozhrani
         funcInterface.abstractFun(5);
 
         // -----------------------------------------------------------------
         // nadefinujeme metodu (abstractFun) ktera vynasobi vstup X2 a vypise ho;
-        funcInterface = (int x)->{
+        funcInterface = (int x)->{ // lambda výraz s více řádky
             System.out.print("krat tri - ");
             System.out.println(3*x);
         };
@@ -40,10 +40,8 @@ public class FunctionalTets {
     @Test
     public void funTest02(){
 
-        FuncInterface02 fobj02;
-        // --------------------------------------
         // deklarujeme metodu zde
-        fobj02 = (int x, int y)->{ // dva parametry
+        FuncInterface02 fobj02 = (int x, int y)->{ // dva parametry // lambda výraz
             System.out.println(x+y);
         };
         fobj02.abstractFun(5, 12);
@@ -54,7 +52,8 @@ public class FunctionalTets {
 
         FuncInterface03 fobj03;
         // --------------------------------------
-        fobj03 = (String s)->{ // deklarace metody ktera ma i navratovou hodnotu
+        fobj03 = (String s)->{ // deklarace metody ktera ma i navratovou hodnotu // lambda výraz s více řádky
+            System.out.println("ahoj");
             return new String(s + "-sufix");
         };
         String resultStr = fobj03.abstractFun("ahoj"); // volani metody
@@ -65,29 +64,44 @@ public class FunctionalTets {
     // FUNCTION funkční rozhraní
     // generické funkční rozhraní, které přebírá objekt libovolného typu ( T)
     // a vrací objekt libovolného typu ( R). Metoda applyje zodpovědná za volání implementované akce.
-
-
     @Test
     public void funtest() {
-        // deklarujeme
-        Function<Employee, String> employeeToString = (employee) -> employee.getName(); // deklarace funkcniho rozhrani (typ objektu / datovy typ)
+
+        // slozitejsi
+        /*
+         //  v paxi dela lambda toto
+         String funkceLAmbdy(Employee mujZamestnanec){
+                return mujZamestnanec.getName();
+        }*/
+
+        Function<Employee, String> employeeToString = (mujZamestnanec) -> mujZamestnanec.getName(); // deklarace funkcniho rozhrani (typ objektu / datovy typ navratu)
+        // toto rozhrani deklaruje volani metody employee.getName()
+
+        // slozitejsi
+        Function<Employee, String> employeeToStringSuf = (employee) -> employee.getNameAndSuffix(); // deklarace funkcniho rozhrani (typ objektu / datovy typ navratu)
+        // toto rozhrani deklaruje volani metody employee.getNameAndSuffix()
+
         List<Employee> employeesList = Arrays.asList( // pole dvou objektu typu Employee
                 new Employee("test"),
                 new Employee("test2"));
+
         showEmployee(employeesList, employeeToString); // volame pomocnou funkci ktera zpracuje List a funkcni rozhrani
+        showEmployee(employeesList, employeeToStringSuf); // volame pomocnou funkci ktera zpracuje List a funkcni rozhrani
     }
     // pomocna funkce
     static void showEmployee(List<Employee> employees, Function<Employee, String> showFunction) {
+        // prochazi ve smycce list objektu Employee
         for (Employee employee : employees) {
+            // volame funkcni rozhrani ktere ma deklarovanou funkci employee.getName() a ty vypisuje jmeno
             System.out.println(showFunction.apply(employee)); // Metoda apply je zodpovědná za volání implementované akce
         }
     }
 
-    // *******************************************************************************
+
+    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     // SUPPLIER dodavatel
     // obecné funkční rozhraní, jehož odpovědností je poskytovat hodnotu objektu typu T.
     // Metoda getvrací hodnotu implementovanou v rozhraní.
-
     @Test
     public void supltest() {
         getValue(() -> "supplier test!"); // do metody posíláme lambdu

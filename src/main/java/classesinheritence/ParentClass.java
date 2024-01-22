@@ -1,6 +1,6 @@
-package overideexample;
+package classesinheritence;
 
-public class MainX {
+public class ParentClass {
 
     public String getName() throws Exception {
         return nameFromChild();

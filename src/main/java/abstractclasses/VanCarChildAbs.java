@@ -1,6 +1,6 @@
 package abstractclasses;
 
-public class VanCarChildAbs extends MainAbstractCar {
+public class VanCarChildAbs extends ParentAbstractCar {
 
     @Override
     protected String carInfoFromChild() {

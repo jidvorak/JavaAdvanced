@@ -1,6 +1,6 @@
 package abstractclasses;
 
-public class PersonalCarChildAbs extends MainAbstractCar {
+public class PersonalCarChildAbs extends ParentAbstractCar {
 
 
     @Override

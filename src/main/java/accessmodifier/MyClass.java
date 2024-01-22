@@ -1,5 +1,7 @@
 package accessmodifier;
 
+// ukázka modifikátorů přístupu, není zde žádná spustitelná metoda
+// jde jen o popis deklarace
 public class MyClass {
 
     // default (nezadano) = pristup ze stejne tridy a trid stejneho baliku

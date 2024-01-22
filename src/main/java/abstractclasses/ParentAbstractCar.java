@@ -1,7 +1,7 @@
 package abstractclasses;
 
 // ABSTRAKTNI TRIDA SE NEDA VYTVORIT POMOCI (NEW)
-public abstract class MainAbstractCar {
+public abstract class ParentAbstractCar {
     // -------------------------------------------
     public String getCarrInfo(){
         return " info=" + carInfoFromChild() + " len=" + carInfoLength();

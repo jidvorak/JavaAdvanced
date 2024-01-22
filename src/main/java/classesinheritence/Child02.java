@@ -1,6 +1,6 @@
-package overideexample;
+package classesinheritence;
 
-public class Child02 extends MainX{
+public class Child02 extends ParentClass {
 
     @Override
     protected String nameFromChild(){

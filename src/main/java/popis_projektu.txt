@@ -1,0 +1,27 @@
+
+--------------------------------------------------------------------------------
+
+Abstrakti třídy a jejich dědění
+src/main/java/abstractclasses/MainAbstract.java
+
+--------------------------------------------------------------------------------
+
+Ukázky moidifikátorů přístupu - bez spustitelného kódu - jen deklarace
+src/main/java/accessmodifier (package-nikoli class)
+
+--------------------------------------------------------------------------------
+
+V této složce jsou ukázky deklarace anotací. Použití je uvedeno u reflections
+src/main/java/annotations
+
+--------------------------------------------------------------------------------
+
+Třída deklarovaná v třídě, třída deklarovaná v metodě
+src/main/java/classinclass/MainClsInCls.java
+
+--------------------------------------------------------------------------------
+
+Dědění tříd a overide metod
+src/main/java/classesinheritence/MainInheritence.java
+
+--------------------------------------------------------------------------------

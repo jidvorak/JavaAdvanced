@@ -1,3 +1,5 @@
+package classinclass;
+
 public class TestCls {
 
     public static class InClassStatic {

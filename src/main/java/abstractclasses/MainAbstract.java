@@ -1,12 +1,20 @@
-import abstractclasses.MainAbstractCar;
-import abstractclasses.PersonalCarChildAbs;
-import abstractclasses.VanCarChildAbs;
-import org.junit.jupiter.api.Test;
+package abstractclasses;
 
-public class AbstractTestClass {
+public class MainAbstract {
 
-    @Test
-    public void absTest() {
+    public static void main(String[] args) {
+
+        // test abstraktni tidy - děděni
+        abstractTest();
+
+        // použití anonymní třídy
+        abstractAnonymTest();
+
+    }
+
+    public static void abstractTest() {
+
+        // vytváříme dvě instance děděné z abstraktní třídy a voláme jejich metodu
 
         PersonalCarChildAbs absPersonal = new PersonalCarChildAbs();
         System.out.println(absPersonal.getCarrInfo());
@@ -15,11 +23,11 @@ public class AbstractTestClass {
         System.out.println(absvan.getCarrInfo());
     }
 
-    // použití anonymní třídy
-    @Test
-    public void absAnonymTest() {
 
-        MainAbstractCar abs = new MainAbstractCar() {
+    public static void abstractAnonymTest() {
+
+        // třída se deklaruje přímo zde - nikoli v samostatném kódu
+        ParentAbstractCar abs = new ParentAbstractCar() {
             @Override
             protected String carInfoFromChild() {
                 return "";
@@ -38,7 +46,5 @@ public class AbstractTestClass {
 
         System.out.println(abs.getCarrInfo());
     }
+
 }
-
-
-

@@ -1,25 +1,25 @@
 package constructors;
 
-public class MainC {
+public class ParentClass {
 
     private String name = "";
     private DataClass data;
 
-    public MainC() {
+    public ParentClass() {
         name = "empty name";
     }
-    public MainC(DataClass datac) {
+    public ParentClass(DataClass datac) {
         data = datac;
     }
 
-    public MainC(DataClass datac, String aname) {
+    public ParentClass(DataClass datac, String aname) {
         data = datac;
         name = aname;
     }
-    public MainC(String aName){
+    public ParentClass(String aName){
         name = aName;
     }
-    public MainC(String prefix, String aName){
+    public ParentClass(String prefix, String aName){
         name = prefix + ": " + aName;
     }
     public String getName() {

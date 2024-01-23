@@ -2,8 +2,13 @@ package exceptions;
 
 import java.io.IOException;
 
-public class ExcClass {
+// Ukazka prace s exceptions
+public class MainExceptions {
 
+    public static void main(String[] args) {
+        exceptHandle("test 1");
+        exceptHandleSimple("setr 2");
+    }
     public static void exceptHandle(String s){
 
         System.out.println("start metody --------------------------------------------");
@@ -57,7 +62,8 @@ public class ExcClass {
     }
 
 
-    // exception se musí deklarovat u metody
+    // exception se musí deklarovat u metody (throws Exception)
+    // pokud to neni RuntimeException
     public static void printStringThrowException(String s) throws Exception {
         if(s!=null) {
             System.out.println(s);
@@ -66,6 +72,7 @@ public class ExcClass {
             throw new Exception("Moje chyba : text chyby >>> string si nulllllllll");
     }
 
+    // test vstupu a pokud je null vyhozeni chyby
     public static void printStringThrowIlegalArgException(String s){
         if(s!=null) {
             System.out.println(s);
@@ -109,6 +116,7 @@ public class ExcClass {
       return num1 / num2;
     }
 
+    // odchyceni chyby ve smycce
     public static void smyckaCatchException(){
         for(Integer i = 5; i>-5; i--) {
             try {

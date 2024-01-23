@@ -1,8 +1,4 @@
-import functional.Employee;
-import functional.FuncInterface;
-import functional.FuncInterface02;
-import functional.FuncInterface03;
-import org.junit.jupiter.api.Test;
+package functional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,10 +8,22 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class FunctionalTets {
+// Ukázka funkcionálního programování
+public class MainFunctional {
 
-    @Test
-    public void funTest(){
+    public static void main(String[] args) {
+
+        // popisi jsou u jednotlivých metod
+        functionalTest();
+        funTest02();
+        funTest03();
+        funtest();
+        supltest();
+        consumtest();
+        predictest();
+        optionaltest();
+    }
+    public static void functionalTest(){
 
         // pouziti funkcniho rozhrani -----------------------------------------
         // nadefinujeme promennou typu FuncInterface
@@ -37,8 +45,8 @@ public class FunctionalTets {
 
     }
 
-    @Test
-    public void funTest02(){
+
+    public static void funTest02(){
 
         // deklarujeme metodu zde
         FuncInterface02 fobj02 = (int x, int y)->{ // dva parametry // lambda výraz
@@ -47,8 +55,7 @@ public class FunctionalTets {
         fobj02.abstractFun(5, 12);
     }
 
-    @Test
-    public void funTest03(){
+    public static void funTest03(){
 
         FuncInterface03 fobj03;
         // --------------------------------------
@@ -64,8 +71,8 @@ public class FunctionalTets {
     // FUNCTION funkční rozhraní
     // generické funkční rozhraní, které přebírá objekt libovolného typu ( T)
     // a vrací objekt libovolného typu ( R). Metoda applyje zodpovědná za volání implementované akce.
-    @Test
-    public void funtest() {
+
+    public static void funtest() {
 
         // slozitejsi
         /*
@@ -102,8 +109,7 @@ public class FunctionalTets {
     // SUPPLIER dodavatel
     // obecné funkční rozhraní, jehož odpovědností je poskytovat hodnotu objektu typu T.
     // Metoda getvrací hodnotu implementovanou v rozhraní.
-    @Test
-    public void supltest() {
+    public static void supltest() {
         getValue(() -> "supplier test!"); // do metody posíláme lambdu
     }
 
@@ -114,8 +120,8 @@ public class FunctionalTets {
     // *******************************************************************************
     // Consumer - spotřebitel - je další obecné funkční rozhraní.
     // Představuje operaci, která přijímá jeden vstupní argument a nevrací žádný výsledek
-    @Test
-    public void consumtest() {
+
+    public static void consumtest() {
         Consumer<String> stringTrim = (s) -> {
             s = s.trim();
             System.out.println(s);
@@ -131,8 +137,7 @@ public class FunctionalTets {
     // *******************************************************************************
     // Predicate - prtedikát
     // představuje operaci, která přijímá jeden argument a vrací logickou hodnotu založenou na předaném parametru
-    @Test
-    public void predictest() {
+    public static void predictest() {
         Predicate<Integer> predicate = (value) -> {
             return value >= 0;
         };
@@ -144,8 +149,8 @@ public class FunctionalTets {
 
     // *******************************************************************************
     // Optional
-    @Test
-    public void optionaltest() {
+
+    public static void optionaltest() {
 
         Optional<String> optStr00 = Optional.empty();
         Optional<String> optStr01 = Optional.of("ahoj");

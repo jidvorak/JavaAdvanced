@@ -1,21 +1,36 @@
+package generisc;
+
 import colections.DataClass;
-import generisc.*;
 import interfacebest.Child;
 import interfacebest.ManInteface;
 import interfacebest.OldMan;
-import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GenericsTest {
+// Generika
+public class MainGenerics {
+
+    public static void main(String[] args) {
+        noGeneric();
+        genericInCollections();
+        customGeneric();
+        testTypickePouziti();
+        testConstructor();
+        pairTest();
+        pairChilds();
+        genericMethod();
+        genLimits();
+        genLimits02();
+
+
+    }
 
     // negenerika ---------------------------------------------------------------------
-
-    @Test
-    public void nogenTest(){
-        // vytvarime Box, nastavujeme mu item ktery muze byt libovolneho typu
+    public static void noGeneric(){
+        // vytvarime instanci Box, nastavujeme mu item ktery muze byt libovolneho typu
 
         Box box = new Box();
         box.setItem("polozka v boxu");
@@ -26,14 +41,13 @@ public class GenericsTest {
         noGenProcBox(box);
     }
     // predavame Box, ten ma item a nevíme jakého je datového typu
-    public void noGenProcBox(Box b){
+    public static void noGenProcBox(Box b){
         Object o = b.getItem(); // o = neznamy typ
     }
 
     // generika ---------------------------------------------------------------------
     // příklad pouzití generik v collection
-    @Test
-    public void genUsing(){
+    public static void genericInCollections(){
 
         // pouzivame u kolekci
         List<Integer> intList = new ArrayList<>();
@@ -67,10 +81,7 @@ public class GenericsTest {
 
     // vlastni generika ---------------------------------------------------------------------
 
-    @Test
-    public void genTest() {
-
-        // TODO zkuste něco podobneho jako v teto metode
+    public static void customGeneric() {
 
         // vlastni genericka trida - kde pri zadání typu definujeme
         // s jakým datovým typem s bude pracovat. zde to je String - definuje se : GenBox<String>
@@ -93,13 +104,12 @@ public class GenericsTest {
     }
 
     // zpracuje pouze generickou tridu ktera pracuje s typem String
-    public void genericProcBox(GenBox<String> b){
+    public static void genericProcBox(GenBox<String> b){
 
         String strInBox = b.getItem(); //  typ retezec
     }
 
-    @Test
-    public void testTypickePouziti(){
+    public static void testTypickePouziti(){
 
         // pracujeme s rozhranim a vkladame tridu Child ktera ho implementuje
         // asi nejlepsi pouziti
@@ -115,15 +125,14 @@ public class GenericsTest {
 
     }
 
-    public void genericProcInterfaceBox(GenBox<ManInteface> genBox){
+    public static void genericProcInterfaceBox(GenBox<ManInteface> genBox){
 
         ManInteface manInt = genBox.getItem();
         manInt.printName();
 
     }
 
-    @Test
-    public void testConstructor() {
+    public static void testConstructor() {
 
         // genericka trida ktere v konstruktoru predavame data
         ManInteface man = new OldMan();
@@ -135,8 +144,7 @@ public class GenericsTest {
 
     }
 
-    @Test
-    public void pairTest(){
+    public static void pairTest(){
 
         // vytvoreni genericke tridy klic/hodnota s typy Integer/DataClass
         Pair<Integer, DataClass> pair = new Pair<>();
@@ -151,8 +159,7 @@ public class GenericsTest {
 
     }
 
-    @Test
-    public void pairChils(){
+    public static void pairChilds(){
 
         // Potomek muze pracovat klicem definovanym zde jako <String>
         // hodnota byla definovana jako Integer pri dedeni v tride PairChild01
@@ -168,8 +175,8 @@ public class GenericsTest {
 
     }
 
-    @Test
-    public void genMethod(){
+
+    public static void genericMethod(){
 
         // generická metoda převezme jen takové typy parametrů, jaké jsou deklarovány
         // v promenné ( Pair<Integer, String> firstPair ) tedy Integer + String
@@ -184,8 +191,7 @@ public class GenericsTest {
 
     }
 
-    @Test
-    public void genLimits(){
+    public static void genLimits(){
 
         // genericka trida NumericBox definuje generiku jako <T extends Number>
         // proto jdou pouzit jen typy zdedene z Number
@@ -204,8 +210,7 @@ public class GenericsTest {
         */
     }
 
-    @Test
-    public void genLimits02(){
+    public static void genLimits02(){
         List<Integer> intlist = new ArrayList<>();
         intlist.add(55);
         intlist.add(100);

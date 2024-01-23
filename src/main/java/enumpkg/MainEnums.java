@@ -1,18 +1,20 @@
-import enumpkg.BasicColorsEnum;
-import enumpkg.ColorsEnum;
-import org.junit.jupiter.api.Test;
+package enumpkg;
 
-public class EnumTests {
-
+// Ukazka prace s Enum
+public class MainEnums {
+    // klasicke konstanty, tyto popisuji stejny objekt (color) jineho typu
+    // v takovem pripade je lepsi pouzit Enum
     private static final String COLOR_RED  = "RED";
     private static final String COLOR_BLUE  = "BLUE";
 
-    @Test
-    public void enm(){
+    public static void main(String[] args) {
         pritIt(BasicColorsEnum.BLACK);
+        constTest();
+        enmTest(ColorsEnum.BLUE);
     }
 
-    public void pritIt(BasicColorsEnum colorenum){
+    // vypise polozku podle enum
+    public static void pritIt(BasicColorsEnum colorenum){
 
         if(colorenum== BasicColorsEnum.BLACK)
             System.out.println("je to cerna");
@@ -20,9 +22,8 @@ public class EnumTests {
             System.out.println("to neni cerna");
     }
 
-
-    @Test
-    public void constTest(){
+    // pouziti konstant - lepe pouzit enum
+    public static void constTest(){
 
         // rozhodovani podle hodnoty a konstanty
         String color = COLOR_BLUE;
@@ -36,11 +37,9 @@ public class EnumTests {
 
     }
 
-    @Test
-    public void enmTest(){
+    public static void enmTest(ColorsEnum clrsenum){
 
-        // obdrzime enum, treba ve vstupním parametru
-        ColorsEnum clrsenum = ColorsEnum.BLACK;
+        // obdrzime enum ve vstupním parametru
 
         // na základě jeho typu (enumu) provedeme nějakou cinnost
         if(clrsenum == ColorsEnum.BLUE){

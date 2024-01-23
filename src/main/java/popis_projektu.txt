@@ -16,12 +16,17 @@ src/main/java/annotations
 
 --------------------------------------------------------------------------------
 
+Dědění tříd a overide metod
+src/main/java/classesinheritence/MainInheritence.java
+
+--------------------------------------------------------------------------------
+
 Třída deklarovaná v třídě, třída deklarovaná v metodě
 src/main/java/classinclass/MainClsInCls.java
 
 --------------------------------------------------------------------------------
 
-Dědění tříd a overide metod
-src/main/java/classesinheritence/MainInheritence.java
+// Ukazky prace s collections
+src/main/java/colections/MainCollections.java
 
 --------------------------------------------------------------------------------

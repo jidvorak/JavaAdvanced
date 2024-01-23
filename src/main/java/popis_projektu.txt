@@ -45,3 +45,5 @@ src/main/java/functional/MainFunctional.java
 --------------------------------------------------------------------------------
 Generika
 src/main/java/generisc/MainGenerics.java
+
+--------------------------------------------------------------------------------

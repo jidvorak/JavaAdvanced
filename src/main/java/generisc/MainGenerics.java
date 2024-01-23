@@ -1,9 +1,9 @@
 package generisc;
 
 import colections.DataClass;
-import interfacebest.Child;
-import interfacebest.ManInteface;
-import interfacebest.OldMan;
+import interfaces.Child;
+import interfaces.HumanInteface;
+import interfaces.OldMan;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,14 +67,14 @@ public class MainGenerics {
         // tento list pracuje s rozhranim ManInteface
         // lze do nej vkladat i tridy ktere ho implementuji
 
-        ManInteface ma = new OldMan("TO SU JA ");
+        HumanInteface ma = new OldMan("TO SU JA ");
 
-        List<ManInteface> manIntList = new ArrayList<>();
+        List<HumanInteface> manIntList = new ArrayList<>();
         manIntList.add(new OldMan());
         manIntList.add(ma);
         manIntList.add(new Child());
 
-        for (ManInteface mi : manIntList) {
+        for (HumanInteface mi : manIntList) {
             mi.printName();
         }
     }
@@ -114,10 +114,10 @@ public class MainGenerics {
         // pracujeme s rozhranim a vkladame tridu Child ktera ho implementuje
         // asi nejlepsi pouziti
 
-        GenBox<ManInteface> manBox = new GenBox<>();
+        GenBox<HumanInteface> manBox = new GenBox<>();
         manBox.setItem(new Child());
 
-        GenBox<ManInteface> manBox02 = new GenBox<>();
+        GenBox<HumanInteface> manBox02 = new GenBox<>();
         manBox02.setItem(new OldMan());
 
         genericProcInterfaceBox(manBox);
@@ -125,9 +125,9 @@ public class MainGenerics {
 
     }
 
-    public static void genericProcInterfaceBox(GenBox<ManInteface> genBox){
+    public static void genericProcInterfaceBox(GenBox<HumanInteface> genBox){
 
-        ManInteface manInt = genBox.getItem();
+        HumanInteface manInt = genBox.getItem();
         manInt.printName();
 
     }
@@ -135,10 +135,10 @@ public class MainGenerics {
     public static void testConstructor() {
 
         // genericka trida ktere v konstruktoru predavame data
-        ManInteface man = new OldMan();
-        GenCup<ManInteface> cup = new GenCup<>(man);
+        HumanInteface man = new OldMan();
+        GenCup<HumanInteface> cup = new GenCup<>(man);
 
-        GenCup<ManInteface> cup02 = new GenCup<>(new Child());
+        GenCup<HumanInteface> cup02 = new GenCup<>(new Child());
 
         GenCup<Integer> cup03 = new GenCup<>(11);
 

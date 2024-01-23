@@ -1,6 +1,6 @@
-package interfacebest;
+package interfaces;
 
-public class OldMan implements ManInteface {
+public class OldMan implements HumanInteface {
 
     private String localStr = "";
 

@@ -1,6 +1,6 @@
-package interfacebest;
+package interfaces;
 
-public class Child implements ManInteface {
+public class Child implements HumanInteface {
     @Override
     public void printName() {
         System.out.println("child");

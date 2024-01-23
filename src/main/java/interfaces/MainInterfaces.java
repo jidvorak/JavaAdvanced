@@ -1,15 +1,15 @@
-import interfacebest.Child;
-import interfacebest.ManInteface;
-import interfacebest.OldMan;
-import interfaces.CarIntPersonal;
-import interfaces.CarIntVan;
-import interfaces.CarInterface;
-import org.junit.jupiter.api.Test;
+package interfaces;
 
-public class InterfaceTests {
+public class MainInterfaces {
 
-    @Test
-    public void intTest(){
+
+    public static void main(String[] args) {
+        intTest();
+        implementInMethod();
+        getInterface(1);
+        interfaceMethodsCall();
+    }
+    public static void intTest(){
 
         CarInterface carInterface01;
 
@@ -21,9 +21,9 @@ public class InterfaceTests {
 
     }
 
-    @Test
-    public void intTestAnon(){
+    public static void implementInMethod(){
 
+        // implementace rozhrani prim zde v vkodu
         CarInterface carInterface = new CarInterface() {
             @Override
             public String getSPZ() {
@@ -53,7 +53,8 @@ public class InterfaceTests {
 
     // vytvori a vrati implementaci rozhrani dle parametru
     // implemntace je potomek CarIntPersonal nebo CarIntVan
-    private CarInterface getInterface(int cartype){
+    private static CarInterface getInterface(int cartype){
+
         if(cartype==1)
             return new CarIntPersonal();
         else
@@ -62,7 +63,7 @@ public class InterfaceTests {
 
     // metoda pouziva rozhrani nezavisle na tom co ji implementuje
     // CarIntPersonal nebo CarIntVan
-    private void printInfo(CarInterface carInterface){
+    private static void printInfo(CarInterface carInterface){
         System.out.println(carInterface.getSeparator());
         System.out.println(carInterface.getSPZ());
         System.out.println(carInterface.getCarType());
@@ -71,12 +72,12 @@ public class InterfaceTests {
 
     }
 
-    @Test
-    public void intTestMan() {
+
+    public static void interfaceMethodsCall() {
 
         // pokud mame promennou typu interface lze volat jen metody interface
-        ManInteface old = new OldMan();
-        ManInteface child = new Child();
+        HumanInteface old = new OldMan();
+        HumanInteface child = new Child();
 
         System.out.println("---- OLD ----");
         old.printName();

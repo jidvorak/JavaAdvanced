@@ -72,3 +72,5 @@ Ukazka prace s Threads
 src/main/java/threads/MainThreads.java
 
 --------------------------------------------------------------------------------
+Ukazka synchronnizace vlaken
+src/main/java/threadsynchronize/MainSynchron.java

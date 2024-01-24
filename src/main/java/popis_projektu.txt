@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-Abstrakti třídy a jejich dědění
+Abstraktni třídy a jejich dědění
 src/main/java/abstractclasses/MainAbstract.java
 
 --------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Interface (rozhraní)
 src/main/java/interfaces/MainInterfaces.java
 
 --------------------------------------------------------------------------------
-Ukázka definice (sealed class) Třída SealedMainClass je deklarována jako seled
+Ukázka definice (sealed class) Třída SealedMainClass je deklarována jako sealed
 Proto z ní nelze dědit
 src/main/java/sealedclass
 
@@ -70,3 +70,5 @@ src/main/java/streamapi/MainStreamApi.java
 --------------------------------------------------------------------------------
 Ukazka prace s Threads
 src/main/java/threads/MainThreads.java
+
+--------------------------------------------------------------------------------

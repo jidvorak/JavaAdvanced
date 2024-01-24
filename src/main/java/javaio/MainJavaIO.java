@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Test;
+package javaio;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -12,14 +12,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputOutputTests {
+// Ukazka Java IO - vstupne vystupni operace
+public class MainJavaIO {
 
+    // nutne je upravit si zde cestu dle adresaru ve vasem PC
+    // pripadne operacniho systemu
     protected static final String C_ROOTDIR = "C:/JavaIO";
 
+    public static void main(String[] args) throws Exception {
+
+        // nektere metody nemusi projit
+        // jsou zavisle na souborech ve vasem PC
+
+        sysProperty();
+        basicIOTest();
+        renameTest();
+        genFilesTest();
+        PathTest();
+        streamTest();
+        streamTest02();
+        streamTest03();
+        testBufferFiles();
+        testBufferFiles02();
+        testChannel();
+        testBufferMem();
+        nioTest();
+        nioMethodCallTest();
+        exampleTest();
+
+    }
     // **************** IO *******************************
 
-    @Test
-    public void sysProperty(){
+    public static void sysProperty(){
         // pouzity system property
         // vraci data dle opreracniho systemu WIN, MAC, LINUX
 
@@ -32,8 +56,7 @@ public class InputOutputTests {
         //protected static final String C_ROOTDIR = "C:" + System.getProperty("file.separator") + "JavaIO";
     }
 
-    @Test
-    public void basicIOTest() throws Exception {
+    public static void basicIOTest() throws Exception {
 
         File file = new File(C_ROOTDIR + "/textfile.txt"); // nemusi byt (txt)
         if (file.exists()) { // test existence
@@ -45,8 +68,7 @@ public class InputOutputTests {
         file.createNewFile(); // prejmenovani
     }
 
-    @Test
-    public void renameTest() throws Exception {
+    public static void renameTest() throws Exception {
 
         // trida file popisuje soubor ktery muze a nemusi existovat
         File file = new File(C_ROOTDIR + "/textfile.txt");
@@ -60,8 +82,7 @@ public class InputOutputTests {
         }
     }
 
-    @Test
-    public void genFilesTest() throws Exception {
+    public static void genFilesTest() throws Exception {
         // vytvorime 10 souboru - generujeme nazev
         for(Integer i = 1; i<11; i++){
             File file = new File(C_ROOTDIR + "/file_" + i + ".txt");
@@ -72,8 +93,7 @@ public class InputOutputTests {
         }
     }
 
-    @Test
-    public void PathTest() throws Exception {
+    public static void PathTest() throws Exception {
         // PATH - informace o souboru
         Path path = Paths.get(C_ROOTDIR + "/new.jpg");
         System.out.println(path.getFileName()); // nazev
@@ -83,8 +103,7 @@ public class InputOutputTests {
 
      // **************** STREAM *******************************
 
-    @Test
-    public void streamTest() throws Exception {
+    public static void streamTest() throws Exception {
 
         // vhodne pro praci s binarnim souborem
 
@@ -106,8 +125,7 @@ public class InputOutputTests {
             }
         }
     }
-    @Test
-    public void streamTest02() throws Exception {
+    public static void streamTest02() throws Exception {
 
         // vhodne pro praci s textem cteme po znacich
 
@@ -130,8 +148,7 @@ public class InputOutputTests {
         }
     }
 
-    @Test
-    public void streamTest03() throws Exception {
+    public static void streamTest03() throws Exception {
 
         // vhodne pro praci s textem cteme po znacich
 
@@ -151,8 +168,7 @@ public class InputOutputTests {
         }
     }
 
-    @Test
-    public void testBufferFiles() throws Exception{
+    public static void testBufferFiles() throws Exception{
 
         // cdeni pomoci bufferu - cteme text po radcich
         // pro text nejlepsi
@@ -168,8 +184,7 @@ public class InputOutputTests {
         in.close();
         out.close();
     }
-    @Test
-    public void testBufferFiles02() throws Exception{
+    public static void testBufferFiles02() throws Exception{
 
         // cdeni pomoci bufferu - cteme text po radcich
         // pro text nejlepsi
@@ -182,8 +197,7 @@ public class InputOutputTests {
         in.close();
     }
 
-    @Test
-    public void testChannel() throws Exception{
+    public static void testChannel() throws Exception{
 
         // kanály
         // pokud by se někdo chtěl dozvedet vice zak zde
@@ -202,8 +216,7 @@ public class InputOutputTests {
         file.close();
     }
 
-    @Test
-    public void testBufferMem() throws Exception{
+    public static void testBufferMem() throws Exception{
 
         // Buffer = pametovy prostor ktery drzi data
         // v prikladu do nej zapiseme retezec a pak vypiseme buffer
@@ -221,8 +234,7 @@ public class InputOutputTests {
 
 
     // ****************** NIO ********************************************************************
-    @Test
-    public void nioTest() throws Exception{
+    public static void nioTest() throws Exception{
 
         // doporucuji pouzivat metody tridy Files
 
@@ -247,8 +259,7 @@ public class InputOutputTests {
         }
     }
 
-    @Test
-    public void nioMethodCallTest() throws Exception{
+    public static void nioMethodCallTest() throws Exception{
 
         List<String> lines = new ArrayList<>();
         lines.add("prvni radek");
@@ -258,7 +269,7 @@ public class InputOutputTests {
         fileOutput("_ABCD.TXT", lines);
     }
 
-    public void fileOutput(String filename, List<String> lines) throws Exception{
+    public static void fileOutput(String filename, List<String> lines) throws Exception{
 
         Path path = Paths.get(C_ROOTDIR + "/" + filename);
         Files.deleteIfExists(path);
@@ -271,9 +282,7 @@ public class InputOutputTests {
 
     }
 
-
-    @Test
-    public void exampleTest() throws Exception{
+    public static void exampleTest() throws Exception{
 
         // precteni binarniho souboru do pole byte[]
         Path path = Paths.get(C_ROOTDIR + "/new.jpg");
@@ -281,8 +290,5 @@ public class InputOutputTests {
         System.out.println("size is :" + data.length);
 
     }
-
-
-
 
 }

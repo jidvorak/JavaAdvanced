@@ -47,3 +47,26 @@ Generika
 src/main/java/generisc/MainGenerics.java
 
 --------------------------------------------------------------------------------
+Interface (rozhraní)
+src/main/java/interfaces/MainInterfaces.java
+
+--------------------------------------------------------------------------------
+Ukázka definice (sealed class) Třída SealedMainClass je deklarována jako seled
+Proto z ní nelze dědit
+src/main/java/sealedclass
+
+--------------------------------------------------------------------------------
+Serializace objektu do souboru a deserializace ze souboru
+src/main/java/serialized/MainSerialization.java
+
+--------------------------------------------------------------------------------
+Ukazka Java IO - vstupne vystupni operace
+src/main/java/javaio/MainJavaIO.java
+
+--------------------------------------------------------------------------------
+Ukazka prace se stream api
+src/main/java/streamapi/MainStreamApi.java
+
+--------------------------------------------------------------------------------
+Ukazka prace s Threads
+src/main/java/threads/MainThreads.java

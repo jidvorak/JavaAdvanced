@@ -1,5 +1,6 @@
 package interfaces;
 
+// Interface (rozhraní)
 public class MainInterfaces {
 
 

@@ -1,19 +1,29 @@
-import enumpkg.BasicColorsEnum;
-import org.junit.jupiter.api.Test;
+package threads;
+
 import threads.*;
 
 
-import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
 
-public class ThreadExampleTest {
+// Ukazka prace s Threads
+public class MainThreads {
 
-    @Test
-    public void threadTest() throws Exception{
+    public static void main(String[] args) throws Exception {
+
+        // lepe poustet jednotlive a v nestatickych metodach
+
+        //threadTest();
+        //runableTest();
+        //waitNotifTest();
+        //executorTest();
+        //executorCallableTest();
+        //atomicTest();
+
+    }
+    public static void threadTest() throws Exception{
 
         // thread 01 - vytvorima a nastartujemae vlakno
         MyThread thread1 = new MyThread("   - THREAD 01", 10);
@@ -38,8 +48,7 @@ public class ThreadExampleTest {
         }
         */
     }
-    @Test
-    public void runableTest() throws Exception {
+    public static void runableTest() throws Exception {
 
         // vlakna je mozne spoustet i pomoci runnable
         // pouziti tridy implementujici runnable
@@ -64,15 +73,7 @@ public class ThreadExampleTest {
     }
 
 
-    @Test
-    public void serializableTestNew() throws Exception{
-        // TODO
-
-
-    }
-
-    @Test
-    public void waitNotifTest(){
+    public static void waitNotifTest(){
 
         // ukazka komunikace mezi thready cekani/pokracovani
         GunFight gunFight = new GunFight();
@@ -100,14 +101,13 @@ public class ThreadExampleTest {
          final ExecutorService cachedES = Executors.newCachedThreadPool();           // cached thread pool
          final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(cpus); // scheduled thread pool with cpu equal number of threads
         * */
-    @Test
-    public void executorTest() {
+    public static void executorTest() {
         // spravuje nase vlakna v nasi aplikaci
         ExecutorService executor = Executors.newFixedThreadPool(10);
         // vytvoreni vlakna
         executor.execute(new Runnable() {
             public void run() {
-                while(true) {
+                for (int i=0; i<20;i++){
                     System.out.println("Asynchronous task 01 ");
                     try{
                         Thread.sleep(10);
@@ -120,7 +120,7 @@ public class ThreadExampleTest {
         // vytvoreni druheho vlakna
         executor.execute(new Runnable() {
             public void run() {
-                while(true) {
+                for (int i=0; i<20;i++){
                     System.out.println("Asynchronous task 02 ");
                     try{
                         Thread.sleep(10);
@@ -132,7 +132,7 @@ public class ThreadExampleTest {
         });
 
         // zastaveni vsech vlaken v executor service
-        executor.shutdown();
+        executor.shutdownNow();
         /*
         shutdown()- fond vláken přestane přijímat nové úlohy, ty zahájené budou dokončeny a fond bude uzavřen
         shutdownNow()- Podobně jako shutdown, ExecutorServicepřestane přijímat nové úkoly, navíc se pokusí zastavit všechny aktivní úkoly,
@@ -142,8 +142,7 @@ public class ThreadExampleTest {
          */
 
     }
-    @Test
-    public void executorCallableTest() throws Exception {
+    public static void executorCallableTest() throws Exception {
         // vytvoreni ExecutorService
         ExecutorService executor = Executors.newFixedThreadPool(10);
         // spoustime vlakno jako rozhrani Callable (nikoli jako Runnable)
@@ -169,8 +168,7 @@ public class ThreadExampleTest {
 
     }
 
-    @Test
-    public void atomicTest() throws Exception {
+    public static void atomicTest() throws Exception {
 
         final ExecutorService executorService = Executors.newFixedThreadPool(2);
 

@@ -1,26 +1,23 @@
+package reflections;
+
 import annotations.SimpleAnotation;
 import classesinheritence.Car;
-import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class ReflectionTestClass {
+// Ukazka reflections
+public class MainReflection {
 
-
-    @Test
-    public void testDepric() throws Exception {
-        TridaDepricated t = new TridaDepricated();
-        t.tiskni("ahoj"); // depricated
-        t.tiskniLepe("ahoj");
+    public static void main(String[] args) throws Exception {
+        testReflect();
+        findAllAuthEnumClasses();
     }
 
-    @Test
-    public void testReflect() throws Exception {
+    public static void testReflect() throws Exception {
 
         //Car car01 = new Car(); // klasicka tvorba
         //car01.stringCar = "abc";
@@ -62,8 +59,7 @@ public class ReflectionTestClass {
     }
 
     // jen pro zajimavost - vypys vsech trid z baliko
-    @Test
-    public void findAllAuthEnumClasses() throws Exception {
+    public static void findAllAuthEnumClasses() throws Exception {
         String packageName="classesinheritence";
         InputStream stream = ClassLoader.getSystemClassLoader()
                 .getResourceAsStream(packageName.replaceAll("[.]", "/"));
@@ -79,12 +75,12 @@ public class ReflectionTestClass {
             }
         }
     }
-
-    protected void processClass(Class<?> cls){
+    // vypis metod tridy
+    protected static void processClass(Class<?> cls){
         System.out.println(cls.getName());
         //
         Method[] methods = cls.getDeclaredMethods();
-        Field[] fields = cls.getDeclaredFields();
+        Field[] fields = cls.getDeclaredFields(); // lze ziskat i fieldy tridy
         for (Method method : methods) {
             System.out.println("    method - " + method);
         }

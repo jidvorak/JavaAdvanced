@@ -1,13 +1,27 @@
-import org.junit.jupiter.api.Test;
+package streamapi;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamApiTest {
+// Ukazka prace se stream api
+public class MainStreamApi {
 
-    private List<String> createList() {
+    public static void main(String[] args) throws Exception {
+        streamArray();
+        iteraceStrem();
+        streamFind();
+        streamFilter();
+        streamMinMax();
+        streamFilterCount();
+        streamReduce();
+        streamApiSort();
+    }
+
+
+    private static List<String> createList() {
+        // pomocna metoda vyrabi List
         List<String> items = new ArrayList<String>();
         items.add("one");
         items.add("two2");
@@ -19,8 +33,7 @@ public class StreamApiTest {
         return items;
     }
 
-    @Test
-    public void strTest01() {
+    public static void streamArray() {
         // vytvoreni stream z pole int
         int[] intArray = new int[]{1, 2, 3};
         IntStream arraysStream = Arrays.stream(intArray);
@@ -30,36 +43,17 @@ public class StreamApiTest {
         Stream<String> stream = items.stream(); // pozadovany stream
     }
 
-    @Test
-    public void strTest02() {
+
+    public static void iteraceStrem() {
         // kazdy stream umi iterovat (prochazet) polozky (podobne jako kolekce)
         List<String> items = createList();
         Stream<String> stream = items.stream();
         stream.forEach(s -> System.out.println(s));
     }
 
-    @Test
-    public void strTestBuilder() {
-
-        // klasika
-        BuilderTestClass bclas = new BuilderTestClass();
-        bclas.setName("pepa");
-        bclas.setAge("33");
-        bclas.setAddress("Jihlava");
-        System.out.println(bclas);
-
-        // navrhovy vzor builder
-        BuilderTestClass bc = new BuilderTestClass()
-                .setName("karel")
-                .setAge("22")
-                .setAddress("Praha");
-
-        System.out.println(bc);
-    }
 
 
-    @Test
-    public void strTest03() {
+    public static void streamFind() {
         // hledani ve stream
         // find
         Stream<String> stream = Stream.of("a", "b", "c");
@@ -70,8 +64,7 @@ public class StreamApiTest {
         }
     }
 
-    @Test
-    public void strTest04() {
+    public static void streamFilter() {
         // filter
         List<Integer> list = Arrays.asList(3, 4, 6, 12, 20);
         List<Integer> filtredlist = list.stream()
@@ -80,8 +73,8 @@ public class StreamApiTest {
         filtredlist.forEach(integer -> System.out.println(integer));
     }
 
-    @Test
-    public void streamApi05() throws Exception{
+
+    public static void streamMinMax() throws Exception{
         // min max atd
         List<String> items = new ArrayList<String>();
         items.add("XY");
@@ -96,8 +89,7 @@ public class StreamApiTest {
         System.out.println(shortest);
     }
 
-    @Test
-    public void streamApi06() throws Exception{
+    public static void streamFilterCount() throws Exception{
         // count filtrujeme t
         List<String> items = new ArrayList<String>();
         items.add("one");
@@ -111,8 +103,8 @@ public class StreamApiTest {
         System.out.println(count);
     }
 
-    @Test
-    public void streamApi07() throws Exception{
+
+    public static void streamReduce() throws Exception{
         // reduce - redukuje na jeden string
         List<String> items = new ArrayList<String>();
         items.add("one");
@@ -126,8 +118,8 @@ public class StreamApiTest {
         System.out.println(reduced2);
     }
 
-    @Test
-    public void streamApiSort() throws Exception{
+
+    public static void streamApiSort() throws Exception{
 
         System.out.println("--------------------------------");
         // serazeni od UP->DOWN

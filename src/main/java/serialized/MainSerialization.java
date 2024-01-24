@@ -1,4 +1,5 @@
-import org.junit.jupiter.api.Test;
+package serialized;
+
 import serialized.MySerializeClass;
 
 import java.io.FileInputStream;
@@ -6,12 +7,15 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class InputOutputSerialization {
+// Serializace objektu do souboru a deserializace ze souboru
+public class MainSerialization {
 
-    @Test
-    public void serializeTest() throws Exception{
+    public static void main(String[] args) throws Exception {
 
+        // nutne je upravit si zde cestu dle adresaru ve vasem PC
+        // pripadne operacniho systemu
         String filename = "C:/JavaIO/serializable/serialized.binary";
+        // -------------------------
 
         MySerializeClass serializeClass = new MySerializeClass("Jiri", 44, "London" );
         serializeClass.getStrList().add("hodnota1");
@@ -22,13 +26,13 @@ public class InputOutputSerialization {
         serialize(serializeClass, filename);
 
 
-        MySerializeClass newClass = deserialize(filename);
+        MySerializeClass newClass = (MySerializeClass)deserialize(filename);
         System.out.println("deserialized object : "  + newClass);
 
     }
 
     // serializuje libovolny objekt ktery implementuje rozhrani Serialize
-    public void serialize(Object serializeClass, String filename) throws Exception{
+    public static void serialize(Object serializeClass, String filename) throws Exception{
         FileOutputStream fileOutputStream = new FileOutputStream(filename); // vytvarime file output stream - data se budou zapisouvat do souboru
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream); // objekt serializuje a zapisuje do fileOutStream
         outputStream.writeObject(serializeClass); // serializace objektu
@@ -37,14 +41,17 @@ public class InputOutputSerialization {
         fileOutputStream.close(); // uzavreni proudu
     }
 
-    // TODO udelat generiku
-    public MySerializeClass deserialize(String filename) throws Exception{
-        FileInputStream fileIn = new FileInputStream(filename); // vstupni stream ze souboru
-        ObjectInputStream in = new ObjectInputStream(fileIn); // deserializacni stream
-        MySerializeClass deserialized = (MySerializeClass) in.readObject(); // deserializce
-        in.close(); // uzavirani
-        fileIn.close(); // uzavirani
-        return deserialized;
+    public static Object deserialize(String filename) throws Exception{
+        FileInputStream fileIn = null;
+        ObjectInputStream in = null;
+        try {
+            fileIn = new FileInputStream(filename); // vstupni stream ze souboru
+            in = new ObjectInputStream(fileIn); // deserializacni stream
+            return in.readObject(); // deserializce
+        }finally {
+            in.close(); // uzavirani
+            fileIn.close(); // uzavirani
+        }
     }
 
 

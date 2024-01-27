@@ -1,4 +1,4 @@
-package enumpkg;
+package enums;
 
 public enum ColorsAdvancedEnum {
     RED("red color", 56847),

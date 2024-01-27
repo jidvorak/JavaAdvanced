@@ -6,6 +6,6 @@ public class MyThread1 extends Thread{
         this.t=t;
     }
     public void run(){
-        t.printTable("thread 1 --- ");
+        t.printTable("vlakno 1 --- ");
     }
 }

@@ -10,7 +10,6 @@ public class MainClsInCls {
         inerclass.jmeno = "karel";
         System.out.println(inerclass.jmeno);
 
-
         // zde je deklarace třídy, a to přímo v této metodě
         // lze tedy použít také jen v této metodě
         class InMethodClass {

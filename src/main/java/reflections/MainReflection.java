@@ -27,6 +27,8 @@ public class MainReflection {
         // Car car = (Car) carClass.newInstance();
         // vytvorime instanci z tridy - nackene pomoci retezce "classesinheritence.Car"
         Car car = (Car) carClass.getDeclaredConstructor().newInstance();
+        // Car ccc = new Car();
+
 
         Field field = carClass.getDeclaredField("stringCar"); // ziskame field (protected String stringCar;) z Car
         field.setAccessible(true); // nastavime pristupnost

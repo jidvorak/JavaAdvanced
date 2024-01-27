@@ -8,6 +8,9 @@ public class MainExceptions {
     public static void main(String[] args) {
         exceptHandle("test 1");
         exceptHandleSimple("setr 2");
+
+        customException("AHOJ");
+
     }
     public static void exceptHandle(String s){
 
@@ -129,13 +132,14 @@ public class MainExceptions {
     }
 
     // vlastni exception
-    public void customException(String s) throws MyException {
-
-        if(s.equalsIgnoreCase("AHOJ"))
-            //throw new MyException(this.getClass(), "retezec nesmi mit hodnotu AHOJ - zadne tykani");
-            throw new MyException("ExcClass", "retezec nesmi mit hodnotu AHOJ - zadne tykani");
-
-        System.out.println("retezec je OK, ma hodnotu : " + s);
+    public static void customException(String s) {
+        try {
+            if (s.equalsIgnoreCase("AHOJ"))
+                //throw new MyException(this.getClass(), "retezec nesmi mit hodnotu AHOJ - zadne tykani");
+                throw new MyException("ExcClass", "retezec nesmi mit hodnotu AHOJ - zadne tykani");
+        }catch (MyException myEx){
+            System.out.println("data z nasi MyException : " + myEx.getDate());
+        }
     }
 
 

@@ -1,4 +1,4 @@
-package enumpkg;
+package enums;
 
 // Ukazka prace s Enum
 public class MainEnums {
@@ -11,15 +11,22 @@ public class MainEnums {
         pritIt(BasicColorsEnum.BLACK);
         constTest();
         enmTest(ColorsEnum.BLUE);
+
+
+        System.out.println(ColorsAdvancedEnum.GREEN.getColorName());
+        ColorsAdvancedEnum enumAdv = ColorsAdvancedEnum.BLACK;
+        System.out.println(enumAdv.getColorName());
     }
 
     // vypise polozku podle enum
     public static void pritIt(BasicColorsEnum colorenum){
 
-        if(colorenum== BasicColorsEnum.BLACK)
+        if(colorenum== BasicColorsEnum.BLACK) {
             System.out.println("je to cerna");
-        else
+        }
+        else {
             System.out.println("to neni cerna");
+        }
     }
 
     // pouziti konstant - lepe pouzit enum

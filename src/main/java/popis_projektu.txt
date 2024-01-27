@@ -1,26 +1,26 @@
+********************************************************************************
+ADVANCED JAVA: CLASSES, OOP, ENUM
+********************************************************************************
+
 --------------------------------------------------------------------------------
 Abstraktni třídy a jejich dědění
 src/main/java/abstractclasses/MainAbstract.java
-
---------------------------------------------------------------------------------
-Ukázky moidifikátorů přístupu - bez spustitelného kódu - jen deklarace
-src/main/java/accessmodifier (package-nikoli class)
-
---------------------------------------------------------------------------------
-V této složce jsou ukázky deklarace anotací. Použití je uvedeno u reflections
-src/main/java/annotations
-
---------------------------------------------------------------------------------
-Dědění tříd a overide metod
-src/main/java/classesinheritence/MainInheritence.java
 
 --------------------------------------------------------------------------------
 Třída deklarovaná v třídě, třída deklarovaná v metodě
 src/main/java/classinclass/MainClsInCls.java
 
 --------------------------------------------------------------------------------
-Ukazky prace s collections
-src/main/java/colections/MainCollections.java
+Interface (rozhraní)
+src/main/java/interfaces/MainInterfaces.java
+
+--------------------------------------------------------------------------------
+Ukázky modifikátorů přístupu - bez spustitelného kódu - jen deklarace
+src/main/java/accessmodifier (package-nikoli class)
+
+--------------------------------------------------------------------------------
+Dědění tříd a overide metod
+src/main/java/classesinheritence/MainInheritence.java
 
 --------------------------------------------------------------------------------
 Ukazka kompozice. Třída drží instance jiných tříd - jen deklarace
@@ -32,11 +32,28 @@ src/main/java/constructors
 
 --------------------------------------------------------------------------------
 Ukazka prace s Enum
-src/main/java/enumpkg/MainEnums.java
+src/main/java/enums/MainEnums.java
 
---------------------------------------------------------------------------------
+********************************************************************************
+DVANCED JAVA: EXCEPTIONS, ANNOTATIONS, BASICS OF REFLECTIONS
+********************************************************************************
+
 Ukazka prace s exceptions
 src/main/java/exceptions/MainExceptions.java
+
+--------------------------------------------------------------------------------
+V této složce jsou ukázky deklarace anotací. Použití je uvedeno u reflections
+src/main/java/annotations
+
+*******************************************************************************
+ADVANCED JAVA: COLLECTIONS
+********************************************************************************
+
+Ukazky prace s collections
+src/main/java/colections/MainCollections.java
+
+
+
 
 --------------------------------------------------------------------------------
 Ukázka funkcionálního programování
@@ -46,9 +63,6 @@ src/main/java/functional/MainFunctional.java
 Generika
 src/main/java/generisc/MainGenerics.java
 
---------------------------------------------------------------------------------
-Interface (rozhraní)
-src/main/java/interfaces/MainInterfaces.java
 
 --------------------------------------------------------------------------------
 Ukázka definice (sealed class) Třída SealedMainClass je deklarována jako sealed

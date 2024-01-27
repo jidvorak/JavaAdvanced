@@ -1,4 +1,4 @@
-package enumpkg;
+package enums;
 
 public enum BasicColorsEnum {
     RED,

@@ -1,5 +1,7 @@
 package functional;
 
+import accessmodifier.MyClass;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -30,21 +32,22 @@ public class MainFunctional {
         FuncInterface funcInterface;
 
         // nadefinujeme metodu (abstractFun) ktera vynasobi vstup X2 a vypise ho;
+        // vytvarime instanci (jako NEW)
         funcInterface = (int x)->System.out.println(2*x); // lambda výraz s jedním příkazem (nemusí být v {})
         // zavolame metodu funkcniho rozhrani
         funcInterface.abstractFun(5);
 
         // -----------------------------------------------------------------
         // nadefinujeme metodu (abstractFun) ktera vynasobi vstup X2 a vypise ho;
-        funcInterface = (int x)->{ // lambda výraz s více řádky
+        // vytvarime instanci (jako NEW)
+        FuncInterface funcInterface02 = (int x)->{ // lambda výraz s více řádky // void abstractFun(int x);
             System.out.print("krat tri - ");
             System.out.println(3*x);
         };
         // zavolame metodu funkcniho rozhrani
-        funcInterface.abstractFun(5);
+        funcInterface02.abstractFun(5);
 
     }
-
 
     public static void funTest02(){
 
@@ -195,7 +198,6 @@ public class MainFunctional {
         Integer intObj = null;
         Integer int02 = Optional.ofNullable(intObj).orElseGet(() -> 33);
         System.out.println(int02); // String john reappears on the screen
-
 
     }
 

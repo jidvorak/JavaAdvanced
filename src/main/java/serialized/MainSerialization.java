@@ -33,6 +33,7 @@ public class MainSerialization {
 
     // serializuje libovolny objekt ktery implementuje rozhrani Serialize
     public static void serialize(Object serializeClass, String filename) throws Exception{
+
         FileOutputStream fileOutputStream = new FileOutputStream(filename); // vytvarime file output stream - data se budou zapisouvat do souboru
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream); // objekt serializuje a zapisuje do fileOutStream
         outputStream.writeObject(serializeClass); // serializace objektu

@@ -38,11 +38,12 @@ public class MainGenerics {
         Box box2 = new Box();
         box2.setItem(11);
 
-        noGenProcBox(box);
+        noGenProcBox(box, box2);
     }
     // predavame Box, ten ma item a nevíme jakého je datového typu
-    public static void noGenProcBox(Box b){
-        Object o = b.getItem(); // o = neznamy typ
+    public static void noGenProcBox(Box b, Box b2){
+        Object o1 = b.getItem(); // o = neznamy typ
+        Object o2 = b2.getItem(); // o = neznamy typ
     }
 
     // generika ---------------------------------------------------------------------
@@ -109,16 +110,29 @@ public class MainGenerics {
         String strInBox = b.getItem(); //  typ retezec
     }
 
+    /*
+    // nelze pretizit
+    public static void genericProcBox(GenBox<Integer> b){
+
+        Integer strInBox = b.getItem(); //  typ retezec
+    }*/
+
+    public static void genericProcBox(Integer iii){
+
+        Integer intInBox = iii; //  typ retezec
+    }
+
+
     public static void testTypickePouziti(){
 
         // pracujeme s rozhranim a vkladame tridu Child ktera ho implementuje
         // asi nejlepsi pouziti
 
-        GenBox<HumanInteface> manBox = new GenBox<>();
-        manBox.setItem(new Child());
+        GenBox<HumanInteface> manBox = new GenBox<>(); // deklarace s rozhranim
+        manBox.setItem(new Child()); // vstupuje potomek HumanInteface
 
-        GenBox<HumanInteface> manBox02 = new GenBox<>();
-        manBox02.setItem(new OldMan());
+        GenBox<HumanInteface> manBox02 = new GenBox<>(); // deklarace s rozhranim
+        manBox02.setItem(new OldMan()); // vstupuje potomek HumanInteface
 
         genericProcInterfaceBox(manBox);
         genericProcInterfaceBox(manBox02);

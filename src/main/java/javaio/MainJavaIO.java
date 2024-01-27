@@ -234,6 +234,9 @@ public class MainJavaIO {
 
 
     // ****************** NIO ********************************************************************
+    // IO = input output
+    // NIO = rozsireni IO (Files)
+    // velmi ulehcuje praci se soubory
     public static void nioTest() throws Exception{
 
         // doporucuji pouzivat metody tridy Files

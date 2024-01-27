@@ -2,7 +2,6 @@
 ADVANCED JAVA: CLASSES, OOP, ENUM
 ********************************************************************************
 
---------------------------------------------------------------------------------
 Abstraktni třídy a jejich dědění
 src/main/java/abstractclasses/MainAbstract.java
 
@@ -40,7 +39,6 @@ Ukázka definice (sealed class) Třída SealedMainClass je deklarována jako sea
 Proto z ní nelze dědit
 src/main/java/sealedclass
 
-
 ********************************************************************************
 DVANCED JAVA: EXCEPTIONS, ANNOTATIONS, BASICS OF REFLECTIONS
 ********************************************************************************
@@ -49,6 +47,7 @@ Ukazka prace s exceptions
 src/main/java/exceptions/MainExceptions.java
 
 --------------------------------------------------------------------------------
+
 V této složce jsou ukázky deklarace anotací. Použití je uvedeno u reflections
 src/main/java/annotations
 
@@ -72,6 +71,7 @@ ADVANCED JAVA: I/O OPERATIONS
 
 Ukazka Java IO - vstupne vystupni operace
 src/main/java/javaio/MainJavaIO.java
+
 --------------------------------------------------------------------------------
 
 Serializace objektu do souboru a deserializace ze souboru
@@ -85,6 +85,7 @@ Ukazka prace s Threads
 src/main/java/threads/MainThreads.java
 
 --------------------------------------------------------------------------------
+
 Ukazka synchronnizace vlaken
 src/main/java/threadsynchronize/MainSynchron.java
 
@@ -92,11 +93,11 @@ src/main/java/threadsynchronize/MainSynchron.java
 ADVANCED JAVA: NEW THINGS IN JAVA 8 AND 9
 *******************************************************************************
 
---------------------------------------------------------------------------------
 Ukázka funkcionálního programování
 src/main/java/functional/MainFunctional.java
 
 --------------------------------------------------------------------------------
+
 Ukazka prace se stream api
 src/main/java/streamapi/MainStreamApi.java
 

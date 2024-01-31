@@ -91,7 +91,8 @@ public class MainThreads {
             @Override public void run() {
                 // thread 2 (zavola metodu reload a ukonci se)
                 gunFight.reload(); }
-        }.start();
+        }
+        .start();
     }
 
         /* //  moznosti vytvareni ruznych typu Executor service
